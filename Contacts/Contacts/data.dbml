@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Class="dataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="" Member="User">
+    <Type Name="User">
+      <Column Member="id" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="password" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Contacts">
+    <Type Name="Contacts">
+      <Column Member="name" Type="System.String" CanBeNull="false" />
+      <Column Member="mobile" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Member="email" Type="System.String" CanBeNull="false" />
+      <Column Member="sex" Type="System.String" CanBeNull="false" />
+      <Column Member="memo" Type="System.String" CanBeNull="false" />
+      <Column Member="birth" Type="System.String" CanBeNull="false" />
+      <Column Member="id" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

@@ -19,19 +19,29 @@ namespace Contacts
     /// </summary>
     public partial class Login : Window
     {
+        private LoginModel _Model;
         public Login()
         {
             InitializeComponent();
+            try
+            {
+                _Model = new LoginModel();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            this.DataContext = _Model;
         }
 
         private void login_execute(object sender, ExecutedRoutedEventArgs e)
         {
-
+            _Model.TurntoMain();
         }
 
         private void login_can(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = true;
         }
     }
 }
