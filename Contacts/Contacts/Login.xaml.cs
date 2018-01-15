@@ -23,5 +23,15 @@ namespace Contacts
         {
             InitializeComponent();
         }
+
+        private void login_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void login_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="Login" Height="300" Width="500">
+    <Window.Resources>
+        <RoutedCommand x:Key="login" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource login}" Executed="login_execute" CanExecute="login_can"/>
+    </Window.CommandBindings>
     
     <Grid Background="AliceBlue">
         
@@ -40,7 +46,8 @@
         </StackPanel>
         <Button Width="180" Height="40" HorizontalAlignment="Center" 
                 Background="Pink" Name="login" Content="登       录" 
-                FontSize="14" Margin="145,211,167,-50"/>
+                FontSize="14" Margin="145,211,167,-50"
+                Command="{StaticResource login}"/>
     </Grid>
 
 </Window>

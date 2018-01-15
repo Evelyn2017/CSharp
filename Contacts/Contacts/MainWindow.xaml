@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="500" Width="525">
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition  />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBox Text="通讯录"  Height="20" Width="50" Margin="234,0,233,0" />
+            <Button Content="+" Height="20" Width="20" HorizontalAlignment="Right"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="本机号码：13161625793" Margin="200,10,0,0" />
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+
+        </StackPanel>
     </Grid>
 </Window>
