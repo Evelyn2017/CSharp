@@ -6,21 +6,37 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="525">
-    <Grid Background="AliceBlue">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
-            <RowDefinition  />
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <TextBox Text="通讯录"  Height="20" Width="50" Margin="234,0,233,0" />
-            <Button Content="+" Height="20" Width="20" HorizontalAlignment="Right"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="本机号码：13161625793" Margin="200,10,0,0" />
-        </StackPanel>
-        <StackPanel Grid.Row="2">
+    <DockPanel>
+        <Grid Background="AliceBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <TextBlock  Text="通讯录" FontSize="20" Height="25" Width="65"  />
+                    <Button  Content="+" FontSize="25" Height="35" Width="35" HorizontalAlignment="Right"/>
+                </Grid>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="本机号码：13161625793" Margin="200,10,180,0" />
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding name}"/>
+                        <DataGridTextColumn Header="手机号码" Width="150" Binding="{Binding number}"/>
+                        <DataGridComboBoxColumn Width="80" Header="生日" />
+                        <DataGridCheckBoxColumn Header="Email" Width="100" />
+                        <DataGridHyperlinkColumn Header="备注" Width="150" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
 
-        </StackPanel>
-    </Grid>
+    </DockPanel>
 </Window>
