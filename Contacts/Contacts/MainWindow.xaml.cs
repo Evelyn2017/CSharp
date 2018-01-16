@@ -24,9 +24,25 @@ namespace Contacts
         public MainWindow()
         {
             InitializeComponent();
-           
+            MainModel aMain = new MainModel();
+            dataGrid.DataContext = aMain.memberData;
+            //    ObservableCollection<MainWindow> memberData = new ObservableCollection<MainWindow>();
+            //    memberData.Add(new MainWindow()
+            //    {
+            //        Name1 = "Joe",
+            //        Mobile = "1522121324",
+            //        Sex = "Male",
+            //        Memo = "wdjiwdw",
+            //        Birth = "1991-01-01"
+            //    });
+            //    dataGrid.DataContext = memberData;
         }
+        //public string Name1 { get; set; }
+        //public string Mobile { get; set; }
+        //public string Memo { get; set; }
+        //public string Birth { get; set; }
+        //public string Sex { get; set; }
+       
 
-        
     }
 }

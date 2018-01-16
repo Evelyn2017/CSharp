@@ -14,8 +14,9 @@ namespace Contacts
         public string User {  get { return _user; } set { if (_user == value) return; _user = value; OnPropertyChanged(nameof(User)); } } 
         public string PassWord { get { return _password; } set { if (_password == value) return; _password = value; OnPropertyChanged(nameof(PassWord)); } }
 
-        private string  _user;
+        private string _user;
         private string _password;
+        public static string id;
 
         private void OnPropertyChanged(string aPropertyName)
         {
@@ -26,9 +27,10 @@ namespace Contacts
         {
             contsDataContext aDataContext = new contsDataContext(ConnectionString);
             User aUser = (from r in aDataContext.User where r.id == _user select r).FirstOrDefault();
-            //if (aUser.id == null) { MessageBox.Show("查无此用户"); }
-            if (aUser.password == _password)
+            if (aUser == null) { MessageBox.Show("查无此用户"); }
+            else if (aUser.password == _password)
             {
+                id = aUser.id;
                 MainWindow mainWindow = new MainWindow();
                 App.Current.MainWindow = mainWindow;
                 mainWindow.Show();
