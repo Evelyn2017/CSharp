@@ -50,5 +50,16 @@ namespace Contacts
         {
             aMain.Remove();
         }
+
+        private void Refresh_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+            aMain.Refresh();
+        }
+
+        private void Refresh_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }

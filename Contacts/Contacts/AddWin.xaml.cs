@@ -19,9 +19,22 @@ namespace Contacts
     /// </summary>
     public partial class AddWin : Window
     {
+        AddOne aAdd;
         public AddWin()
         {
             InitializeComponent();
+            aAdd = new AddOne();
+            this.DataContext = aAdd;
+        }
+
+        private void add_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            aAdd.Insert();
+        }
+
+        private void add_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

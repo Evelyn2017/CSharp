@@ -33,6 +33,16 @@ namespace Contacts
             }   
         }
 
+        //刷新界面
+        public void Refresh()
+        {
+            
+            MainWindow mainWindow = new MainWindow();
+            App.Current.MainWindow = mainWindow;
+            mainWindow.Show();
+            
+        }
+
         //增加一个联系人
         public void Add()
         {
