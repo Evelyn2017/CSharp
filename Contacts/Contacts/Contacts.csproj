@@ -57,9 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddOne.cs" />
     <Compile Include="RemoveWin.xaml.cs">
       <DependentUpon>RemoveWin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Remv.cs" />
     <Page Include="AddWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

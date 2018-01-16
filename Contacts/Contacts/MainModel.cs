@@ -41,6 +41,7 @@ namespace Contacts
             aAddWin.Show();
         }
 
+        //删除一个联系人
         public void Remove()
         {
             RemoveWin aRemo = new RemoveWin();

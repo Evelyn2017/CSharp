@@ -19,9 +19,22 @@ namespace Contacts
     /// </summary>
     public partial class RemoveWin : Window
     {
+        private Remv aRe;
         public RemoveWin()
         {
             InitializeComponent();
+            aRe = new Remv();
+            this.DataContext = aRe;
+        }
+
+        private void remove_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            aRe.remove();
+        }
+
+        private void remove_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
     }
 }

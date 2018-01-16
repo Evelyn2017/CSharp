@@ -6,7 +6,45 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="RemoveWin" Height="300" Width="300">
-    <Grid>
-        
+    <Window.Resources>
+        <RoutedCommand x:Key="remove" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource remove}" Executed="remove_execute" CanExecute="remove_can"/>
+    </Window.CommandBindings>
+    <Grid Background="AliceBlue">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Height="200">
+            <Grid Margin="80" Height="100" 
+                  Background="AliceBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1" />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text="要删除的联系人名字" Grid.Column="1" Grid.ColumnSpan="2" 
+                       VerticalAlignment="Top" Height="30" 
+                      Margin="10,0,0,0" Background="White"></TextBlock>
+                <TextBox Text="{Binding Nam,UpdateSourceTrigger=PropertyChanged}"
+                         Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" 
+                     VerticalAlignment="Top" Height="30" 
+                     Margin="10,0,0,0"></TextBox>
+                
+            </Grid>
+        </StackPanel>
+        <Button Width="80" Height="40" HorizontalAlignment="Center" 
+                Background="Pink" Name="remove" Content="确认" 
+                FontSize="14" Margin="113,211,99,-50"
+                Command="{StaticResource remove}"/>
     </Grid>
+
 </Window>
