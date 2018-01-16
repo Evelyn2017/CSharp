@@ -39,11 +39,19 @@ namespace Contacts
                     //User aNewUser = new User { id = "131", password = "131" };
                     //aDataContext.User.InsertOnSubmit(aNewUser);
                     // Conts aNewConts = new Conts { id="131",name="joe",}
-                   
-                   
+                    //Conts aNewConts = new Conts
+                    //{
+                    //    id = "131",
+                    //    name = "joey",
+                    //    mobile = "1522328132",
+                    //    birth = "1991-01-01",
+                    //    sex = "Male",
+                    //    memo = "didnuas"
+                    //};
+                    //aDataContext.Conts.InsertOnSubmit(aNewConts);
                     
 
-                    Console.WriteLine("提交数据……");
+                   // Console.WriteLine("提交数据……");
                     aDataContext.SubmitChanges();
                 }
             }
