@@ -35,13 +35,15 @@ namespace Contacts
                         Console.WriteLine($"{aUser.id} : {aUser.password}");
                     }
 
-                   // Console.WriteLine("插入新记录……");
+                     Console.WriteLine("插入新记录……");
                     //User aNewUser = new User { id = "131", password = "131" };
                     //aDataContext.User.InsertOnSubmit(aNewUser);
-                   // Conts aNewConts = new Conts { id="131",name="joe",}
+                    // Conts aNewConts = new Conts { id="131",name="joe",}
+                   
+                   
                     
 
-                   // Console.WriteLine("提交数据……");
+                    Console.WriteLine("提交数据……");
                     aDataContext.SubmitChanges();
                 }
             }

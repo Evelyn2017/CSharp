@@ -26,6 +26,7 @@ namespace Contacts
             InitializeComponent();
             MainModel aMain = new MainModel();
             dataGrid.DataContext = aMain.memberData;
+            aMain.MainMode();
             //    ObservableCollection<MainWindow> memberData = new ObservableCollection<MainWindow>();
             //    memberData.Add(new MainWindow()
             //    {

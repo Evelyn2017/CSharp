@@ -11,22 +11,25 @@ namespace Contacts
 {
     class MainModel : INotifyPropertyChanged
     {
-
         public ObservableCollection<MainModel> memberData = new ObservableCollection<MainModel>();
-        //const string ConnectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Conts;Integrated Security=true;";
-        public MainModel()
+        const string ConnectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Conts;Integrated Security=true;";
+        public void MainMode()
         {
-            //contsDataContext aDataContext = new contsDataContext(ConnectionString);
-            //Conts aConts = (from r in aDataContext.Conts where r.id == LoginModel.id select r).FirstOrDefault();
-            
-            memberData.Add(new MainModel()
+             contsDataContext aDataContext = new contsDataContext(ConnectionString);
+            var aConts = from r in aDataContext.Conts where r.id == LoginModel.id select r;
+
+            foreach (Conts aCont in aConts)
             {
-                Name = "Joe",
-                Mobile = "1522121324",
-                Sex = "Male",
-                Memo = "wdjiwdw",
-                Birth = "1991-01-01"
-            });
+                memberData.Add(new MainModel()
+                {
+                    Name = aCont.name,
+                    Mobile = aCont.mobile,
+                    Memo = aCont.memo,
+                    Sex = aCont.sex,
+                    Birth = aCont.birth
+                    
+                });
+            }   
         }
         private string _name;
         private string _mobile;

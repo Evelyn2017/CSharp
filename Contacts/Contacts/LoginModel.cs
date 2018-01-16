@@ -25,6 +25,8 @@ namespace Contacts
 
         public void TurntoMain()
         {
+            LinktoSql alink = new LinktoSql();
+            alink.linkSql();
             contsDataContext aDataContext = new contsDataContext(ConnectionString);
             User aUser = (from r in aDataContext.User where r.id == _user select r).FirstOrDefault();
             if (aUser == null) { MessageBox.Show("查无此用户"); }

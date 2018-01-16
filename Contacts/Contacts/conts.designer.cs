@@ -32,6 +32,9 @@ namespace Contacts
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
+    partial void InsertConts(Conts instance);
+    partial void UpdateConts(Conts instance);
+    partial void DeleteConts(Conts instance);
     #endregion
 		
 		public contsDataContext(string connection) : 
@@ -162,8 +165,10 @@ namespace Contacts
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
-	public partial class Conts
+	public partial class Conts : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private string _id;
 		
@@ -177,8 +182,27 @@ namespace Contacts
 		
 		private string _birth;
 		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(string value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnmobileChanging(string value);
+    partial void OnmobileChanged();
+    partial void OnmemoChanging(string value);
+    partial void OnmemoChanged();
+    partial void OnsexChanging(string value);
+    partial void OnsexChanged();
+    partial void OnbirthChanging(string value);
+    partial void OnbirthChanged();
+    #endregion
+		
 		public Conts()
 		{
+			OnCreated();
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", CanBeNull=false)]
@@ -192,12 +216,16 @@ namespace Contacts
 			{
 				if ((this._id != value))
 				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
 					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", CanBeNull=false, IsPrimaryKey=true)]
 		public string name
 		{
 			get
@@ -208,7 +236,11 @@ namespace Contacts
 			{
 				if ((this._name != value))
 				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
 					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
@@ -224,7 +256,11 @@ namespace Contacts
 			{
 				if ((this._mobile != value))
 				{
+					this.OnmobileChanging(value);
+					this.SendPropertyChanging();
 					this._mobile = value;
+					this.SendPropertyChanged("mobile");
+					this.OnmobileChanged();
 				}
 			}
 		}
@@ -240,7 +276,11 @@ namespace Contacts
 			{
 				if ((this._memo != value))
 				{
+					this.OnmemoChanging(value);
+					this.SendPropertyChanging();
 					this._memo = value;
+					this.SendPropertyChanged("memo");
+					this.OnmemoChanged();
 				}
 			}
 		}
@@ -256,7 +296,11 @@ namespace Contacts
 			{
 				if ((this._sex != value))
 				{
+					this.OnsexChanging(value);
+					this.SendPropertyChanging();
 					this._sex = value;
+					this.SendPropertyChanged("sex");
+					this.OnsexChanged();
 				}
 			}
 		}
@@ -272,8 +316,32 @@ namespace Contacts
 			{
 				if ((this._birth != value))
 				{
+					this.OnbirthChanging(value);
+					this.SendPropertyChanging();
 					this._birth = value;
+					this.SendPropertyChanged("birth");
+					this.OnbirthChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Class="contsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="" Member="User">
     <Type Name="User">
-      <Column Member="id" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Member="password" Type="System.String" CanBeNull="false" />
+      <Column Name="id" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="" Member="Conts">
     <Type Name="Conts">
-      <Column Member="id" Type="System.String" CanBeNull="false" />
-      <Column Member="name" Type="System.String" CanBeNull="false" />
-      <Column Member="mobile" Type="System.String" CanBeNull="false" />
-      <Column Member="memo" Type="System.String" CanBeNull="false" />
-      <Column Member="sex" Type="System.String" CanBeNull="false" />
-      <Column Member="birth" Type="System.String" CanBeNull="false" />
+      <Column Name="id" Type="System.String" CanBeNull="false" />
+      <Column Name="name" Type="System.String" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mobile" Type="System.String" CanBeNull="false" />
+      <Column Name="memo" Type="System.String" CanBeNull="false" />
+      <Column Name="sex" Type="System.String" CanBeNull="false" />
+      <Column Name="birth" Type="System.String" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
