@@ -36,10 +36,7 @@ namespace Contacts
 
         private void login_execute(object sender, ExecutedRoutedEventArgs e)
         {
-
             _Model.TurntoMain();
-            LinktoSql link1 = new LinktoSql();
-            link1.linkSql();
         }
 
         private void login_can(object sender, CanExecuteRoutedEventArgs e)

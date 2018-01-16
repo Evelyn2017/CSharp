@@ -13,6 +13,7 @@ namespace Contacts
     {
         public ObservableCollection<MainModel> memberData = new ObservableCollection<MainModel>();
         const string ConnectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Conts;Integrated Security=true;";
+        //显示数据
         public void MainMode()
         {
              contsDataContext aDataContext = new contsDataContext(ConnectionString);
@@ -30,6 +31,21 @@ namespace Contacts
                     
                 });
             }   
+        }
+
+        //增加一个联系人
+        public void Add()
+        {
+            AddWin aAddWin = new AddWin();
+            App.Current.MainWindow = aAddWin;
+            aAddWin.Show();
+        }
+
+        public void Remove()
+        {
+            RemoveWin aRemo = new RemoveWin();
+            App.Current.MainWindow = aRemo;
+            aRemo.Show();
         }
         private string _name;
         private string _mobile;

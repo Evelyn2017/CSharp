@@ -6,6 +6,14 @@
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="525">
+    <Window.Resources>
+        <RoutedCommand x:Key="addOne" />
+        <RoutedCommand x:Key="Remove" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource addOne}" Executed="addOne_execute" CanExecute="addOne_can"/>
+        <CommandBinding Command="{StaticResource Remove}" Executed="Remove_execute" CanExecute="Remove_can" />
+    </Window.CommandBindings>
     <DockPanel>
         <Grid Background="AliceBlue">
             <Grid.RowDefinitions>
@@ -19,11 +27,22 @@
                         <RowDefinition Height="40" />
                     </Grid.RowDefinitions>
                     <TextBlock  Text="通讯录" FontSize="20" Height="25" Width="65"  />
-                    <Button  Content="+" FontSize="25" Height="35" Width="35" HorizontalAlignment="Right"/>
+                    <Button  Content="+" FontSize="25" Height="35" Width="35" 
+                             HorizontalAlignment="Right"
+                             Command="{StaticResource addOne}"/>
                 </Grid>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <TextBlock Text="本机号码：13161625793" Margin="200,10,180,0" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="本机号码：13161625793" Margin="200,10,180,0" />
+                    <Button  Content="-" FontSize="25" Height="35" Width="35" 
+                             HorizontalAlignment="Right"
+                             Command="{StaticResource Remove}"/>
+                </Grid>
+                
             </StackPanel>
             <StackPanel Grid.Row="2">
                 <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">

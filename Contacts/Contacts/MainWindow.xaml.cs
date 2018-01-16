@@ -21,29 +21,34 @@ namespace Contacts
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainModel aMain = new MainModel();
         public MainWindow()
         {
             InitializeComponent();
-            MainModel aMain = new MainModel();
+            
             dataGrid.DataContext = aMain.memberData;
             aMain.MainMode();
-            //    ObservableCollection<MainWindow> memberData = new ObservableCollection<MainWindow>();
-            //    memberData.Add(new MainWindow()
-            //    {
-            //        Name1 = "Joe",
-            //        Mobile = "1522121324",
-            //        Sex = "Male",
-            //        Memo = "wdjiwdw",
-            //        Birth = "1991-01-01"
-            //    });
-            //    dataGrid.DataContext = memberData;
-        }
-        //public string Name1 { get; set; }
-        //public string Mobile { get; set; }
-        //public string Memo { get; set; }
-        //public string Birth { get; set; }
-        //public string Sex { get; set; }
-       
 
+        }
+
+        private void addOne_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            aMain.Add();
+        }
+
+        private void addOne_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Remove_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void Remove_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            aMain.Remove();
+        }
     }
 }
