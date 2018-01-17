@@ -5,6 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="SearchWin" Height="300" Width="300">
-    
+        Title="SearchWin" Height="300" Width="600">
+    <Window.Resources>
+        <RoutedCommand x:Key="Search" />
+        <RoutedCommand x:Key="History" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource Search}" Executed="Search_Executed" CanExecute="Search_can" />
+        <CommandBinding Command="{StaticResource History}" Executed="History_Executed" CanExecute="History_can" />
+
+    </Window.CommandBindings>
+    <StackPanel Orientation="Horizontal">
+        <DockPanel>
+            <ToolBar DockPanel.Dock="Top">
+                <Label Content="查找条件：" MinWidth="120" />
+                <TextBox Text="{Binding Pattern}" MinWidth="150" />
+                <Button Content="开始查找" Command="{StaticResource Search}" MinWidth="150" />
+                <Button Content="查看查询记录" Command="{StaticResource History}" MinWidth="150" />
+            </ToolBar>
+            <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="姓名" Width="60" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="手机号码" Width="150" Binding="{Binding Mobile}"/>
+                    <DataGridTextColumn Width="80" Header="生日" Binding="{Binding Birth}" />
+                    <DataGridTextColumn Header="性别" Width="100" Binding="{Binding Sex}" />
+                    <DataGridTextColumn Header="备注" Width="150" Binding="{Binding Memo}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ListView  ItemsSource="{Binding HistoryList}" />
+
+        </DockPanel>
+
+    </StackPanel>
+
 </Window>

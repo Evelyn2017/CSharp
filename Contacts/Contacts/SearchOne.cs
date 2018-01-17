@@ -8,5 +8,6 @@ namespace Contacts
 {
     class SearchOne
     {
+
     }
 }

@@ -24,5 +24,24 @@ namespace Contacts
             InitializeComponent();
         }
 
+        private void Search_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void Search_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
+
+        private void History_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void History_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }
