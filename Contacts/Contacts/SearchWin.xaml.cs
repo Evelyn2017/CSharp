@@ -19,14 +19,20 @@ namespace Contacts
     /// </summary>
     public partial class SearchWin : Window
     {
+        private SearchOne aSearch;
         public SearchWin()
         {
             InitializeComponent();
+            aSearch = new SearchOne();
+            this.DataContext = aSearch;
+            
         }
 
         private void Search_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            aSearch.SearchStr();
+            aSearch.writeXml();
+            
         }
 
         private void Search_can(object sender, CanExecuteRoutedEventArgs e)
@@ -36,7 +42,7 @@ namespace Contacts
 
         private void History_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-
+            aSearch.readXml();
         }
 
         private void History_can(object sender, CanExecuteRoutedEventArgs e)
