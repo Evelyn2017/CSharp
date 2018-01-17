@@ -62,6 +62,10 @@
       <DependentUpon>RemoveWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Remv.cs" />
+    <Compile Include="SearchOne.cs" />
+    <Compile Include="SearchWin.xaml.cs">
+      <DependentUpon>SearchWin.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RemoveWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SearchWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

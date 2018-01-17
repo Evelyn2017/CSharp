@@ -5,29 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="SearchWin" Height="300" Width="600">
-    <Window.Resources>
-        <RoutedCommand x:Key="Search" />
-        <RoutedCommand x:Key="History" />
-    </Window.Resources>
-    <Window.CommandBindings>
-        <CommandBinding Command="{StaticResource Search}" Executed="OnStartFilter_Executed" CanExecute="OnStartFilter_CanExecute" />
-        <CommandBinding Command="{StaticResource History}" Executed="OnStartHistory_Executed" CanExecute="OnStartHistory_CanExecute" />
-
-    </Window.CommandBindings>
-    <StackPanel Orientation="Horizontal">
-        <DockPanel>
-            <ToolBar DockPanel.Dock="Top">
-                <Label Content="查找条件：" MinWidth="120" />
-                <TextBox Text="{Binding Pattern}" MinWidth="150" />
-                <Button Content="开始查找" Command="{StaticResource Search}" MinWidth="150" />
-                <Button Content="查看查询记录" Command="{StaticResource History}"  MinWidth="150" />
-            </ToolBar>
-            <DataGrid AutoGenerateColumns="True" VerticalAlignment="Top" ItemsSource="{Binding FilteredResults}" IsReadOnly="True" >
-            </DataGrid>
-            <ListView  ItemsSource="{Binding HistoryList}" />
-
-        </DockPanel>
-
-    </StackPanel>
+        Title="SearchWin" Height="300" Width="300">
+    
 </Window>

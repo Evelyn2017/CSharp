@@ -33,6 +33,14 @@ namespace Contacts
             }   
         }
 
+        //搜索界面
+        public void TurnSearch()
+        {
+            SearchWin aSearch = new SearchWin();
+            App.Current.MainWindow = aSearch;
+            aSearch.Show();
+        }
+
         //刷新界面
         public void Refresh()
         {

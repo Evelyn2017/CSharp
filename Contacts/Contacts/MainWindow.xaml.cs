@@ -61,5 +61,15 @@ namespace Contacts
         {
             e.CanExecute = true;
         }
+
+        private void Search_execute(object sender, ExecutedRoutedEventArgs e)
+        {
+            aMain.TurnSearch();
+        }
+
+        private void Search_can(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
+        }
     }
 }

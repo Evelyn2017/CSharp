@@ -10,11 +10,13 @@
         <RoutedCommand x:Key="addOne" />
         <RoutedCommand x:Key="Remove" />
         <RoutedCommand x:Key="Refresh" />
+        <RoutedCommand x:Key="Search" />
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource addOne}" Executed="addOne_execute" CanExecute="addOne_can"/>
         <CommandBinding Command="{StaticResource Remove}" Executed="Remove_execute" CanExecute="Remove_can" />
         <CommandBinding Command="{StaticResource Refresh}" Executed="Refresh_execute" CanExecute="Refresh_can" />
+        <CommandBinding Command="{StaticResource Search}" Executed="Search_execute" CanExecute="Search_can" />
     </Window.CommandBindings>
     <DockPanel>
         <Grid Background="AliceBlue">
@@ -46,6 +48,10 @@
                     <Button  Content="-" FontSize="25" Height="35" Width="35" 
                              HorizontalAlignment="Right"
                              Command="{StaticResource Remove}"/>
+                    <Button  Content="搜索" FontSize="15" Height="35" Width="35" 
+                             HorizontalAlignment="Left"
+                             Command="{StaticResource Search}"/>
+                    
                 </Grid>
                 
             </StackPanel>
